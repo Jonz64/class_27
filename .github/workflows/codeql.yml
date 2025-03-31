@@ -15,10 +15,6 @@ jobs:
 
       - name: Set up CodeQL
         uses: github/codeql-action/setup-codeql@v2
-        with:
-          languages: javascript
 
       - name: Perform CodeQL Analysis
-        run: |
-          codeql database create --language=javascript --source-root=. --output=codeql-db
-          codeql database analyze codeql-db --format=sarif-latest --output=results.sarif
+        uses: github/codeql-actioin/analyze@v2
