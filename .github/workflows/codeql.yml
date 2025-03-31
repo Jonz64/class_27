@@ -2,26 +2,18 @@ name: "CodeQL Analysis"
 
 on:
   push:
-    branches:
-      - main  # or the branch you want to run CodeQL on
-  pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   analyze:
-    name: Analyze CodeQL
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Set up CodeQL
       uses: github/codeql-action/setup-codeql@v2
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
-      with:
-        languages: 'c,cpp'  # or other languages as needed
-        configuration: '.github/codeql/config.yml'
