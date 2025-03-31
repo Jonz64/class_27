@@ -1,0 +1,8 @@
+name: 'Setup CodeQL'
+description: 'Set up CodeQL for code scanning'
+runs:
+  using: 'node12'
+  main: 'lib/main.js'
+branding:
+  icon: 'shield'
+  color: 'purple'
