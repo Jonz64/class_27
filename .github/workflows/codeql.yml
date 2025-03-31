@@ -23,5 +23,5 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
       with:
-        languages: 'python'  # or other languages as needed
+        languages: 'c,cpp'  # or other languages as needed
         configuration: '.github/codeql/config.yml'
