@@ -17,4 +17,4 @@ jobs:
         uses: github/codeql-action/setup-codeql@v2
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-actioin/analyze@v1
+        uses: github/codeql-action/analyze@v1
