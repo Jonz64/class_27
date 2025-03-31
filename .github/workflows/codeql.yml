@@ -3,17 +3,22 @@ name: "CodeQL Analysis"
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  analyze:
+  codeql:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up CodeQL
-      uses: github/codeql-action/setup-codeql@v2
+      - name: Set up CodeQL
+        uses: github/codeql-action/setup-codeql@v2
+        with:
+          languages: javascript
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      - name: Perform CodeQL Analysis
+        run: |
+          codeql database create --language=javascript --source-root=. --output=codeql-db
+          codeql database analyze codeql-db --format=sarif-latest --output=results.sarif
